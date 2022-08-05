@@ -95,11 +95,8 @@ def api_manufacturers(request):
         return JsonResponse(
             manufacturers,
             encoder=ManufacturerEncoder,
-<<<<<<< HEAD
             safe = False,
-=======
-            safe=False
->>>>>>> 6db2876cb114f89a1568035a648a0b285b959d25
+
         )
     else:
         try:
@@ -171,11 +168,7 @@ def api_vehicle_models(request):
         return JsonResponse(
             models,
             encoder=VehicleModelEncoder,
-<<<<<<< HEAD
             safe = False,
-=======
-            safe=False
->>>>>>> 6db2876cb114f89a1568035a648a0b285b959d25
         )
     else:
         try:
