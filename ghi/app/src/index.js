@@ -3,18 +3,29 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-<<<<<<< HEAD
 
 async function loadInventory() {
-  let vehicleData
-  const vehicleResponse = await fetch('http://localhost:8100/api/automobiles/');
-  // const hatResponse = await fetch('http://localhost:8090/api/hats/');
-
+  let vehicleData, technicianData, appointmentData;
+  const vehicleResponse = await fetch('http://localhost:8100/api/models/');
+  const techResponse = await fetch('http://localhost:8080/api/technician/')
+  const appointmentResponse = await fetch('http://localhost:8080/api/appointment/');
   if (vehicleResponse.ok) {
     vehicleData = await vehicleResponse.json();
     console.log('vehicle data: ', vehicleData)
   } else {
     console.error(vehicleResponse);
+  }
+  if (techResponse.ok) {
+    technicianData = await techResponse.json();
+    console.log('tech data: ', technicianData)
+  } else {
+    console.error(techResponse);
+  }
+  if (appointmentResponse.ok) {
+    appointmentData = await appointmentResponse.json();
+    console.log('appointment data: ', appointmentData)
+  } else {
+    console.error(appointmentResponse);
   }
   // if (hatResponse.ok) {
   //   hatData = await hatResponse.json();
@@ -25,24 +36,16 @@ async function loadInventory() {
 
   root.render(
     <React.StrictMode>
-      <App vehicles={vehicleData} />
+      <App vehicles={vehicleData} hats={technicianData} appointments={appointmentData} />
     </React.StrictMode>
   );
 }
-loadInventory()
+loadInventory();
 // root.render(
 //   <React.StrictMode>
 //     <App />
 //   </React.StrictMode>
 // );
-=======
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
 // import App from './App';
@@ -75,4 +78,3 @@ root.render(
 //   );
 // }
 // loadInventory();
->>>>>>> d9416b306d535e724ced9bf09a6a8bc5d0f75e80

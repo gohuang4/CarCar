@@ -89,8 +89,9 @@ def api_manufacturers(request):
     if request.method == "GET":
         manufacturers = Manufacturer.objects.all()
         return JsonResponse(
-            {"manufacturers": manufacturers},
+            manufacturers,
             encoder=ManufacturerEncoder,
+            safe = False,
         )
     else:
         try:
@@ -160,8 +161,9 @@ def api_vehicle_models(request):
     if request.method == "GET":
         models = VehicleModel.objects.all()
         return JsonResponse(
-            {"models": models},
-            encoder=VehicleModelEncoder
+            models,
+            encoder=VehicleModelEncoder,
+            safe = False,
         )
     else:
         try:
