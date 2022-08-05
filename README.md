@@ -43,7 +43,7 @@ The Sales model has price as a float field to enter in a dolar amount. The Sales
 
 ## Usage Tips
 
-When searching appointment history user must type the VIN and it will filter all results that match the input.
+When searching appointment history user must type the VIN and it will filter all results that match the input(if vins are too similar might have to type in more charaters).
 
 
 ## Useful Insomnia Stuff
