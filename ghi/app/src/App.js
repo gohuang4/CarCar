@@ -34,7 +34,6 @@ function App(props) {
           <Route path="sales">
             <Route index element={<SalesList sales={props.sales} />}/>
             <Route path="new" element={<SalesForm />} />
-            <Route path="history" element={<SalesPersonHistoryList />} />
           </Route>
           <Route path="sales_persons">
             <Route path="new" element={<SalesPersonForm />} />
@@ -56,6 +55,9 @@ function App(props) {
           </Route>
           <Route path = "models">
             <Route path = 'new' element = {<VehiclesModelForm/>}/>
+          </Route>
+          <Route path="sales_history">
+            <Route index element={<SalesPersonHistoryList sales_history={props.sales_history} />}/>
           </Route>
         </Routes>
       </div>

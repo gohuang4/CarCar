@@ -57,6 +57,7 @@ def api_sales_list(request):
     if request.method == "GET":
       # print(request)
       sales = Sales.objects.all()
+      # print("working",sales)
       # response = requests.get("http://inventory-api:8000/api/automobiles/")
       # content = json.loads(response.content)
       return JsonResponse(
@@ -104,12 +105,14 @@ def api_sales_list(request):
           print("Car is Sold!")
 
 @require_http_methods(["GET"])
-def api_show_sale(request, pk):
-  if request.method =="GET":
-    sale=Sales.objects.get(id=pk)
+def api_show_history(request):
+    sale_history=Sales.objects.all()
+    # sale_history=list(sale_history)
+    # print("broken",sale_history)
+    # history_sales=json.dumps(sale_history)
     return JsonResponse(
-      sale,
-      endocer=SalesEncoder,
+      sale_history,
+      encoder=SalesEncoder,
       safe=False
     )
 

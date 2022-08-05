@@ -40,7 +40,6 @@ class SalesForm extends React.Component {
     const CustomerResponse = await fetch(CustomerUrl);
     const SalesPersonResponse = await fetch(SalesPersonUrl);
 
-
     if (AutoResponse.ok) {
       const data = await AutoResponse.json();
       console.log(data)
@@ -108,7 +107,6 @@ class SalesForm extends React.Component {
     const value = event.target.value;
     this.setState({ sales_person: value });
   }
-
 
   render() {
     return (

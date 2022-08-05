@@ -15,8 +15,10 @@ def api_automobiles(request):
     if request.method == "GET":
         automobiles = Automobile.objects.all()
         return JsonResponse(
-           {"autos": automobiles},
-           encoder=AutomobileEncoder
+        #    {"autos": automobiles},
+           automobiles,
+           encoder=AutomobileEncoder,
+           safe=False
         )
     else:
         try:
