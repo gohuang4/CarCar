@@ -169,6 +169,7 @@ def api_show_appointment(request,pk):
 @require_http_methods(['GET'])
 def api_history(request):
     history = Appointments.objects.all()
+    print(history)
     return JsonResponse(
             history,
             encoder=AppointmentsEncoder,

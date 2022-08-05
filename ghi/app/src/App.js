@@ -15,6 +15,7 @@ import TechnicianForm from './TechnicianForm';
 import AppointmentForm from './AppointmentForm';
 import AppointmentList from './AppointmentList';
 import VehiclesModelForm from './VehicleModelsForm';
+import AppointmentHistory from './AppointmentHistory';
 
 function App(props) {
   return (
@@ -58,6 +59,9 @@ function App(props) {
           </Route>
           <Route path="sales_history">
             <Route index element={<SalesPersonHistoryList sales_history={props.sales_history} />}/>
+          </Route>
+          <Route path="ahistory">
+            <Route index element={<AppointmentHistory historys={props.historys} />}/>
           </Route>
         </Routes>
       </div>

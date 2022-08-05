@@ -5,7 +5,8 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 async function loadInventory() {
-  let vehicleData, manufacturerData, salesData, customerData, automobileData, technicianData, appointmentData, salesHistoryData;
+  let vehicleData, manufacturerData, salesData, customerData, automobileData, technicianData, appointmentData, salesHistoryData, appointmentHistoryData;
+  // let vehicleData, manufacturerData, salesData, customerData, automobileData, technicianData, appointmentData, ;
   const vehicleResponse = await fetch('http://localhost:8100/api/models/');
   const manufacturerResponse = await fetch('http://localhost:8100/api/manufacturers/');
   const salesResponse = await fetch ('http://localhost:8090/api/sales/');
@@ -15,6 +16,7 @@ async function loadInventory() {
   // const vehicleResponse = await fetch('http://localhost:8100/api/models/');
   const techResponse = await fetch('http://localhost:8080/api/technician/')
   const appointmentResponse = await fetch('http://localhost:8080/api/appointment/');
+  const appointmentHistoryResponse = await fetch('http://localhost:8080/api/history/');
 
   if (vehicleResponse.ok) {
     vehicleData = await vehicleResponse.json();
@@ -74,6 +76,13 @@ async function loadInventory() {
   } else {
     console.error(appointmentResponse);
   }
+
+  if (appointmentHistoryResponse.ok) {
+    appointmentHistoryData = await appointmentHistoryResponse.json();
+    console.log('history data: ', appointmentHistoryData)
+  } else {
+    console.error(appointmentHistoryResponse);
+  }
   // if (hatResponse.ok) {
   //   hatData = await hatResponse.json();
   //   console.log('hat data: ', hatData)
@@ -83,7 +92,8 @@ async function loadInventory() {
 
   root.render(
     <React.StrictMode>
-      <App vehicles={vehicleData} manufacturers={manufacturerData} sales={salesData} customer={customerData} automobiles={automobileData} hats={technicianData} appointments={appointmentData} sales_history={salesHistoryData} />
+      <App vehicles={vehicleData} manufacturers={manufacturerData} sales={salesData} customer={customerData} automobiles={automobileData} hats={technicianData} appointments={appointmentData} sales_history={salesHistoryData} historys = {appointmentHistoryData}/>
+      {/* <App vehicles={vehicleData} manufacturers={manufacturerData} sales={salesData} customer={customerData} automobiles={automobileData} hats={technicianData} appointments={appointmentData}  /> */}
       {/* <App vehicles={vehicleData} hats={technicianData} appointments={appointmentData} /> */}
     </React.StrictMode>
   );
