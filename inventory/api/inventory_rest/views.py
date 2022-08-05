@@ -13,10 +13,11 @@ from .models import Automobile, Manufacturer, VehicleModel
 @require_http_methods(["GET", "POST"])
 def api_automobiles(request):
     if request.method == "GET":
-        autos = Automobile.objects.all()
+        automobiles = Automobile.objects.all()
         return JsonResponse(
-            {"autos": autos},
+            automobiles,
             encoder=AutomobileEncoder,
+            safe=False
         )
     else:
         try:
@@ -24,9 +25,9 @@ def api_automobiles(request):
             model_id = content["model_id"]
             model = VehicleModel.objects.get(pk=model_id)
             content["model"] = model
-            auto = Automobile.objects.create(**content)
+            automobiles = Automobile.objects.create(**content)
             return JsonResponse(
-                auto,
+                automobiles,
                 encoder=AutomobileEncoder,
                 safe=False,
             )
@@ -40,6 +41,8 @@ def api_automobiles(request):
 
 @require_http_methods(["DELETE", "GET", "PUT"])
 def api_automobile(request, vin):
+    print(request)
+
     if request.method == "GET":
         try:
             auto = Automobile.objects.get(vin=vin)
@@ -53,6 +56,7 @@ def api_automobile(request, vin):
             response.status_code = 404
             return response
     elif request.method == "DELETE":
+        # print(auto)
         try:
             auto = Automobile.objects.get(vin=vin)
             auto.delete()
@@ -91,7 +95,11 @@ def api_manufacturers(request):
         return JsonResponse(
             manufacturers,
             encoder=ManufacturerEncoder,
+<<<<<<< HEAD
             safe = False,
+=======
+            safe=False
+>>>>>>> 6db2876cb114f89a1568035a648a0b285b959d25
         )
     else:
         try:
@@ -163,7 +171,11 @@ def api_vehicle_models(request):
         return JsonResponse(
             models,
             encoder=VehicleModelEncoder,
+<<<<<<< HEAD
             safe = False,
+=======
+            safe=False
+>>>>>>> 6db2876cb114f89a1568035a648a0b285b959d25
         )
     else:
         try:
