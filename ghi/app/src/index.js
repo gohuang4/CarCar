@@ -15,7 +15,7 @@ async function loadInventory() {
 
   if (vehicleResponse.ok) {
     vehicleData = await vehicleResponse.json();
-    console.log('vehicle data: ', vehicleData)
+    // console.log('vehicle data: ', vehicleData)
   } else {
     console.error(vehicleResponse);
   }
@@ -28,21 +28,21 @@ async function loadInventory() {
 
   if (manufacturerResponse.ok) {
     manufacturerData = await manufacturerResponse.json();
-    console.log('manufacturer data: ', manufacturerData)
+    // console.log('manufacturer data: ', manufacturerData)
   } else {
     console.error(manufacturerResponse);
   }
 
   if (salesResponse.ok) {
     salesData = await salesResponse.json();
-    console.log('sales data: ', salesData)
+    // console.log('sales data: ', salesData)
   } else {
     console.error(salesResponse);
   }
 
   if (customerResponse.ok) {
     customerData = await customerResponse.json();
-    console.log('customer data: ', customerData)
+    // console.log('customer data: ', customerData)
   } else {
     console.error(customerResponse);
   }

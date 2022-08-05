@@ -1,5 +1,7 @@
 
-  function AutomobileList(props) {
+  function AutomobileList(props) { 
+      let automobiles=[props.automobiles.autos]
+    console.log(props.automobiles)
     return (
     <div className="container">
     <h2 className="display-5 fw-bold">Automobiles</h2>        
@@ -14,14 +16,15 @@
         </tr>
       </thead>
       <tbody>
-        {props.automobiless.map(auto => {
+        {automobiles.map(auto => {
+          console.log(auto)
           return (
-            <tr key={auto.model}>
+            <tr key={auto.vin}>
               <td>{ auto.vin }</td>
               <td>{ auto.color }</td>
               <td>{ auto.year }</td>
               <td>{ auto.model }</td>
-              <td>{ auto.manufacturer }</td>
+              {/* <td>{ auto.model.manufacturer.name }</td> */}
             </tr>
           );
         })}
