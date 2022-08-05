@@ -3,18 +3,48 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-<<<<<<< HEAD
 
 async function loadInventory() {
-  let vehicleData
-  const vehicleResponse = await fetch('http://localhost:8100/api/automobiles/');
-  // const hatResponse = await fetch('http://localhost:8090/api/hats/');
+  let vehicleData, manufacturerData, salesData, customerData, automobileData
+  const vehicleResponse = await fetch('http://localhost:8100/api/models/');
+  const manufacturerResponse = await fetch('http://localhost:8100/api/manufacturers/');
+  const salesResponse = await fetch ('http://localhost:8090/api/sales/');
+  const customerResponse = await fetch ('http://localhost:8090/api/customers/');
+  const automobileResponse = await fetch ('http://localhost:8100/api/automobiles/');
+
 
   if (vehicleResponse.ok) {
     vehicleData = await vehicleResponse.json();
     console.log('vehicle data: ', vehicleData)
   } else {
     console.error(vehicleResponse);
+  }
+  if (automobileResponse.ok) {
+    automobileData = await automobileResponse.json();
+    console.log('automobile data: ', automobileData)
+  } else {
+    console.error(automobileResponse);
+  }
+
+  if (manufacturerResponse.ok) {
+    manufacturerData = await manufacturerResponse.json();
+    console.log('manufacturer data: ', manufacturerData)
+  } else {
+    console.error(manufacturerResponse);
+  }
+
+  if (salesResponse.ok) {
+    salesData = await salesResponse.json();
+    console.log('sales data: ', salesData)
+  } else {
+    console.error(salesResponse);
+  }
+
+  if (customerResponse.ok) {
+    customerData = await customerResponse.json();
+    console.log('customer data: ', customerData)
+  } else {
+    console.error(customerResponse);
   }
   // if (hatResponse.ok) {
   //   hatData = await hatResponse.json();
@@ -25,7 +55,7 @@ async function loadInventory() {
 
   root.render(
     <React.StrictMode>
-      <App vehicles={vehicleData} />
+      <App vehicles={vehicleData} manufacturers={manufacturerData} sales={salesData} customer={customerData} automobiles={automobileData} />
     </React.StrictMode>
   );
 }
@@ -35,12 +65,11 @@ loadInventory()
 //     <App />
 //   </React.StrictMode>
 // );
-=======
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
 
 
 // import React from 'react';
@@ -75,4 +104,3 @@ root.render(
 //   );
 // }
 // loadInventory();
->>>>>>> d9416b306d535e724ced9bf09a6a8bc5d0f75e80

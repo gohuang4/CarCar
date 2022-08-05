@@ -1,9 +1,9 @@
 
+
   function ManufacturerList(props) {
-    if (props.manufacturers === undefined) {
-      return null
-    }
     return (
+    <div className="container">
+    <h2 className="display-5 fw-bold">Manufacturer</h2>
     <table className="table table-striped">
       <thead>
         <tr>
@@ -20,6 +20,7 @@
         })}
       </tbody>
     </table>
+    </div>
   );
 }
 

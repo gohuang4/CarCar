@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 from django.urls import reverse
 
@@ -32,6 +33,11 @@ class Automobile(models.Model):
         VehicleModel,
         related_name="automobiles",
         on_delete=models.CASCADE,
+    )
+    manufacturer = models.ForeignKey(
+        Manufacturer,
+        related_name="+",
+        on_delete=models.CASCADE
     )
 
     def get_api_url(self):
