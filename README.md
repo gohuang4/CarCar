@@ -41,6 +41,11 @@ The Customer model has name for the customer name in a charfield, address for th
 
 The Sales model has price as a float field to enter in a dolar amount. The Sales model has foreign keys to AutomobileVO to get the vin, Customer to get the customer name, and SalesPerson to obtain the sales_name.
 
+## Usage Tips
+
+When searching appointment history user must type the VIN and it will filter all results that match the input.
+
+
 ## Useful Insomnia Stuff
 
 Manufacturer
@@ -88,5 +93,5 @@ POST
 	"reason": "other"
 }
 
-History
+ServiceHistory
 http://localhost:8080/api/history/
