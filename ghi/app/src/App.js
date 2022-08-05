@@ -11,6 +11,10 @@ import CustomerForm from './CustomerForm';
 import SalesPersonHistoryList from './SalesPersonHistory';
 import AutomobileList from './AutomobileList';
 import AutomobileForm from './AutomobileForm';
+import TechnicianForm from './TechnicianForm';
+import AppointmentForm from './AppointmentForm';
+import AppointmentList from './AppointmentList';
+import VehiclesModelForm from './VehicleModelsForm';
 
 function App(props) {
   return (
@@ -40,6 +44,18 @@ function App(props) {
           </Route>
           <Route path="customers">
             <Route path="new" element={<CustomerForm />} />
+          </Route>
+          <Route path="appointment">
+            <Route index element={<AppointmentList appointments={props.appointments} />}/>
+          </Route>
+          <Route path = "technician">
+            <Route path = 'new' element = {<TechnicianForm/>}/>
+          </Route>
+          <Route path = "appointment">
+            <Route path = 'new' element = {<AppointmentForm/>}/>
+          </Route>
+          <Route path = "models">
+            <Route path = 'new' element = {<VehiclesModelForm/>}/>
           </Route>
         </Routes>
       </div>
