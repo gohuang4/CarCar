@@ -52,7 +52,10 @@ function Nav() {
             </li> 
             <li className="nav-item">
               <NavLink className="nav-link" to="/models/new">Create Models</NavLink>
-            </li>             
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/ahistory">Create Models</NavLink>
+            </li>              
           </ul>
         </div>
       </div>
