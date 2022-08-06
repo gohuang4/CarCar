@@ -2,14 +2,14 @@
 
 Team:
 
-* Gordon Huang - Auto Sales?
+* Gordon Huang - Auto Sales
 * Lakhvinder Dhanoya - Services/Appointments
 
 ## Design
 
 Sales Exalidraw:
 https://excalidraw.com/#json=jOkj_2uwo3zg6rH7ivs_i,f6COurPfCeTPX9gdETsOzA
-Sales person and customer are both entities as they are defined by their id and not their properties. Sales person and customer can change thier atttribues while remain the same object. The sale would be the value object here as it is defined by it's properties. The properites of a sale cannot be changed as once a sale is finalized it immutable. 
+Sales person and customer are both entities as they are defined by their id and not their properties. Sales person and customer can change thier atttribues while remain the same object. The sale would be the value object here as it is defined by it's properties. The properites of a sale cannot be changed as once a sale is finalized it immutable. The Inventory and sales are separated by bounded contexts.
 
 Services/Appointments Excalidraw:
 (****** Make sure to have an empty page when pressing link to avoid overlaps with your current work ******)
@@ -44,6 +44,8 @@ The Sales model has price as a float field to enter in a dolar amount. The Sales
 ## Usage Tips
 
 When searching appointment history user must type the VIN and it will filter all results that match the input(if vins are too similar might have to type in more charaters).
+
+Creating a new sales will require a new VIN since the VIN is unqiue to each car and to each sale.
 
 
 ## Useful Insomnia Stuff
