@@ -47,6 +47,7 @@ When searching appointment history user must type the VIN and it will filter all
 
 Creating a new sales will require a new VIN since the VIN is unqiue to each car and to each sale.
 
+vip setting for services works in the back end but not in the fron end(does not show the value but assigns it)
 
 ## Useful Insomnia Stuff
 
