@@ -31,14 +31,26 @@
 //   }
   
 //   export default SalesPersonHistoryList;
-  
+import {useState} from "react"
 
 function SalesPersonHistoryList(props) {
+    let [searchTerm,setSearchTerm] = useState("")
     return (
       <div className="container">
         <h2 className="display-5 fw-bold">Sales History</h2>
+        <div className="form-control">
+            <input  id = "search1" placeholder="Search. . ." type ="text" onChange={
+                event => {setSearchTerm(event.target.value)}
+            }/>
         <div className="row">
-          {props.sales_history.map(sale => {
+          {props.sales_history.filter((sale)=>{
+            if (searchTerm == "") {
+                return sale
+            } else if (sale.sales_person.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                return sale
+            }
+        }
+        ).map(sale => {
             return (
               <div key={sale.id} className="col">
                 <div className="card mb-3 shadow">
@@ -59,6 +71,7 @@ function SalesPersonHistoryList(props) {
             );
           })}
         </div>
+      </div>
       </div>
     );
   }
