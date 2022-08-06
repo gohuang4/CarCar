@@ -43,10 +43,9 @@ The Sales model has price as a float field to enter in a dolar amount. The Sales
 
 ## Usage Tips
 
-Not all Nav links fit on the nav bar 
-
 When searching appointment history user must type the VIN and it will filter all results that match the input(if vins are too similar might have to type in more charaters).
 
+vip setting for services works in the back end but not in the fron end(does not show the value but assigns it)
 
 ## Useful Insomnia Stuff
 
