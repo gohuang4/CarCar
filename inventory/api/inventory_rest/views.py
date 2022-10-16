@@ -15,7 +15,6 @@ def api_automobiles(request):
     if request.method == "GET":
         automobiles = Automobile.objects.all()
         return JsonResponse(
-        #    {"autos": automobiles},
            automobiles,
            encoder=AutomobileEncoder,
            safe=False
@@ -57,7 +56,6 @@ def api_automobile(request, vin):
             response.status_code = 404
             return response
     elif request.method == "DELETE":
-        # print(auto)
         try:
             auto = Automobile.objects.get(vin=vin)
             auto.delete()

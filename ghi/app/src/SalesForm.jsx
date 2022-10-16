@@ -20,17 +20,6 @@ class SalesForm extends React.Component {
     this.handleChangeSalesPerson = this.handleChangeSalesPerson.bind(this);
   }
 
-  // async componentDidMount() {
-  //   const url = 'http://localhost:8100/api/automobiles/';
-  //   const response = await fetch(url);
-
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     console.log(data)
-  //     this.setState({ automobiles: data });
-  //   }
-  // }
-
   async componentDidMount() {
     const AutoUrl = 'http://localhost:8100/api/automobiles/';
     const CustomerUrl = 'http://localhost:8090/api/customers/';
@@ -56,8 +45,6 @@ class SalesForm extends React.Component {
       console.log(data)
       this.setState({ sales_persons: data });
     }
-
-
   }
 
   async handleSubmit(event) {

@@ -10,7 +10,6 @@ class VehiclesModelForm extends React.Component {
         manufacturers: [],
     };
 
-    //this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeName=this.handleChangeName.bind(this)
     this.handleChangePicture_url=this.handleChangePicture_url.bind(this)
     this.handleChangeManu=this.handleChangeManu.bind(this)
@@ -37,8 +36,7 @@ class VehiclesModelForm extends React.Component {
     delete data.picture_url
 
     console.log(data)
-    // delete data.bins;
-    // delete data.picture_url;
+
 
     const appointUrl = 'http://localhost:8100/api/models/';
     const fetchConfig = {
@@ -75,15 +73,6 @@ class VehiclesModelForm extends React.Component {
     this.setState({ manufacturer_id: value });
   }
 
-//   handleChangeDate(event) {
-//     const value = event.target.value;
-//     this.setState({ date: value });
-//   }
-
-//   handleChangeReason(event) {
-//     const value = event.target.value;
-//     this.setState({ reason: value });
-//   }
   render() {
     return (
       <div className="row">
@@ -101,16 +90,6 @@ class VehiclesModelForm extends React.Component {
                 <input onChange={this.handleChangePicture_url} value={this.state.picture_url} placeholder="Picture_url" required type="text" name="picture_url" id="picture_url" className="form-control" />
                 <label htmlFor="picture_url">Picture</label>
               </div>
-
-              {/* <div className="form-floating mb-3">
-                <input onChange={this.handleChangeDate} value={this.state.date} placeholder="Date" required type="date" name="date" id="date" className="form-control" />
-                <label htmlFor="date">Date</label>
-              </div>
-
-              <div className="form-floating mb-3">
-                <input onChange={this.handleChangeReason} value={this.state.reason} placeholder="Reason" required type="text" name="reason" id="reason" className="form-control" />
-                <label htmlFor="reason">Reason</label>
-              </div> */}
               <div className="mb-3">
                 <select onChange={this.handleChangeManu} value={this.state.manufacturer_id} required name="manufacturer_id" id="manufacturer_id" className="form-select">
                   <option value="manufacturer_id">Manufacturer</option>

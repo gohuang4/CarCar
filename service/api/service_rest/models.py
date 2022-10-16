@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-# Create your models here.
 class Technician(models.Model):
     name = models.CharField(max_length=100)
     number = models.PositiveIntegerField(primary_key=True, unique=True)
@@ -9,16 +8,7 @@ class Technician(models.Model):
     def __str__(self):
         return self.name
 
-# class AppointmentHistory(models.Model):
-#     vin = models.CharField(max_length=100)
-#     owner = models.CharField(max_length=100)
-#     date = models.DateTimeField()
-#     technician = models.ForeignKey(
-#         Technician,
-#         related_name= "service_appointment",
-#         on_delete=models.CASCADE,
-#     )
-#     reason = models.TextField()
+
 
 class VinVO(models.Model):
     href = models.CharField(max_length=100)

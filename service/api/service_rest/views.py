@@ -43,23 +43,6 @@ class AppointmentsEncoder(ModelEncoder):
         }
 
 
-# class HistoryEncoder(ModelEncoder):
-#     model = AppointmentHistory
-#     properties = [
-#         "owner",
-#         "date",
-#         "reason",
-#         "vin",
-#     ]
-#     encoders = {
-#         "technician": TechnicianEncoder(),
-#         }
-#     def get_extra_data(self, o):
-#         return {
-#             "technician": o.technician.name
-#         }  
-
-
 @require_http_methods(['GET','POST'])
 def api_list_technician(request):
     if request.method == "GET":

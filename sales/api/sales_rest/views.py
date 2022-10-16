@@ -1,7 +1,6 @@
 from pickle import GET
 from django.shortcuts import render
 
-# Create your views here.
 
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
@@ -55,25 +54,18 @@ class SalesEncoder(ModelEncoder):
 @require_http_methods(["GET", "POST"])
 def api_sales_list(request):
     if request.method == "GET":
-      # print(request)
       sales = Sales.objects.all()
-      # print("working",sales)
-      # response = requests.get("http://inventory-api:8000/api/automobiles/")
-      # content = json.loads(response.content)
       return JsonResponse(
         sales,
         encoder=SalesEncoder,
         safe=False
       )
 
-    else: #POST
-        # print(request.body)
+    else: 
         content = json.loads(request.body)
-        # print("!!!!!!!!!!!!!", content)
         try:
             vin = content["automobile"]
             automobile = AutomobileVO.objects.get(vin=vin)
-            # print(automobile)
             content["automobile"] = automobile
   
         except AutomobileVO.DoesNotExist:
@@ -83,18 +75,13 @@ def api_sales_list(request):
             )
         emp_number=content["sales_person"]
         sales_person=SalesPerson.objects.get(id=emp_number)
-        # # # print(sales_person.employee)
         content["sales_person"] = sales_person
-
         cust_id=content["customer"]
         customer=Customer.objects.get(id=cust_id)
-        # # # print(customer)
         content["customer"] = customer
-        # # print(content)
         if AutomobileVO.sold != True:
           sales = Sales.objects.create(**content)
           response = requests.delete("http://inventory-api:8000/api/automobiles/"+ automobile.vin)
-          # print(response)
           AutomobileVO.sold == True
           return JsonResponse(
             sales,
@@ -107,29 +94,12 @@ def api_sales_list(request):
 @require_http_methods(["GET"])
 def api_show_history(request):
     sale_history=Sales.objects.all()
-    # sale_history=list(sale_history)
-    # print("broken",sale_history)
-    # history_sales=json.dumps(sale_history)
     return JsonResponse(
       sale_history,
       encoder=SalesEncoder,
       safe=False
     )
 
-
-
-# @require_http_methods(["DELETE"])
-# def api_delete_shoes(request, pk):
-#     try:
-#         shoe = Shoe.objects.get(id=pk)
-#         shoe.delete()
-#         return JsonResponse(
-#           shoe,
-#           encoder=ShoeEncoder,
-#           safe=False,
-#         )
-#     except Shoe.DoesNotExist:
-#         return JsonResponse({"message": "Does not exist"})
 
 @require_http_methods(["GET", "POST"])
 def api_customer_list(request):
@@ -179,10 +149,5 @@ def api_sales_person_list(request):
                 return response 
 
 
-        # sales_person = Sales.objects.create(**content)
-        # return JsonResponse(
-        #   sales_person,
-        #   encoder=SalesEncoder,
-        #   safe=False
-        # )
+
 

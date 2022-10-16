@@ -48,19 +48,6 @@ function AppointmentHistory(props) {
 
                             <td>{ history.technician }</td>
                             <td>{ history.reason }</td>
-
-                            {/* <td>{
-                            (() => {
-                                if ( appointment.vip == true) {
-                                    return(
-                                        <td>yes</td>
-                                    )
-                                } else {
-                                    return(
-                                        <td>no</td>
-                                    )
-                                }
-                            })}</td> */}
                             <td>{ history.vip }</td>
                             </tr>
                         )

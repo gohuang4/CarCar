@@ -12,7 +12,6 @@ class AppointmentForm extends React.Component {
         reason: "",
     };
 
-    //this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeVin=this.handleChangeVin.bind(this)
     this.handleChangeTech=this.handleChangeTech.bind(this)
     this.handleChangeOwner=this.handleChangeOwner.bind(this)
@@ -28,7 +27,6 @@ class AppointmentForm extends React.Component {
 
     if (response.ok) {
       const data = await response.json();
-      //console.log(data.technicians)
       this.setState({ technicians: data });
     }
   }
@@ -39,8 +37,7 @@ class AppointmentForm extends React.Component {
     const data = {...this.state};
     delete data.technicians
     console.log(data)
-    // delete data.bins;
-    // delete data.picture_url;
+
 
     const appointUrl = 'http://localhost:8080/api/appointment/';
     const fetchConfig = {

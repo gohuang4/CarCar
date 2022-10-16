@@ -35,19 +35,6 @@ function AppointmentList(props) {
 
                             <td>{ appointment.technician }</td>
                             <td>{ appointment.reason }</td>
-
-                            {/* <td>{
-                            (() => {
-                                if ( appointment.vip == true) {
-                                    return(
-                                        <td>yes</td>
-                                    )
-                                } else {
-                                    return(
-                                        <td>no</td>
-                                    )
-                                }
-                            })}</td> */}
                             <td>{ appointment.vip }</td>
                             </tr>
                         )
@@ -59,32 +46,3 @@ function AppointmentList(props) {
 }
 export default AppointmentList
 
-
-// function AppointmentList(props) {
-//     return (
-//       <div className="container">
-//         <h2 className="display-5 fw-bold">Appointments</h2>
-//         <div className="row">
-//           {props.appointments.map(appointment => {
-//             return (
-//               <div key={appointment.id} className="col">
-//                 {/* <div className="card mb-3 shadow">
-//                   <div className="card-body">
-//                     <h5 className="card-title">{hat.style}</h5>
-//                     <h6 className="card-subtitle mb-2 text-muted">
-//                       {hat.fabric}
-//                     </h6>
-//                     <p className="card-text">
-//                       {hat.location}
-//                     </p>
-//                   </div>
-//                 </div> */}
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     );
-//   }
-  
-//   export default AppointmentList

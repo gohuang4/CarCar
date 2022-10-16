@@ -16,9 +16,6 @@ class TechnicianForm extends React.Component {
         event.preventDefault();
         console.log(this.state)
         const data = {...this.state};
-        // data.number = data.number
-        // delete data.name;
-        // delete data.number;
         console.log(data)
     
         const locationUrl = 'http://localhost:8080/api/technician/';

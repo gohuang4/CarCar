@@ -18,7 +18,6 @@ class Customer(models.Model):
     name = models.CharField(max_length=200, unique=True)
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=200, unique=True)
-# Create your models here.
 
 class Sales(models.Model):
     price = models.FloatField()

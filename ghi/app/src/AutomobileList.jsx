@@ -1,7 +1,6 @@
 
   function AutomobileList(props) { 
       var automobiles1=props.automobiles
-    // console.log("0000000000000000",props.automobiles)
     return (
     <div className="container">
     <h2 className="display-5 fw-bold">Automobiles</h2>        
@@ -20,7 +19,6 @@
         {
         
         automobiles1.map(auto => {
-        //   console.log("!!!!!!!!!!!",auto)
           return (
             <tr key={auto.vin}>
               <td>{ auto.vin }</td>

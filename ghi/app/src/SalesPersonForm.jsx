@@ -14,17 +14,6 @@ class SalesPersonForm extends React.Component {
     this.handleChangeNumber = this.handleChangeNumber.bind(this);
   }
 
-//   async componentDidMount() {
-//     const url = 'http://localhost:8090/api/sales_persons/';
-
-//     const response = await fetch(url);
-
-//     if (response.ok) {
-//       const data = await response.json();
-//       this.setState({ numbers: data.numbers });
-//     }
-//   }
-
   async handleSubmit(event) {
     event.preventDefault();
     const data = {...this.state};

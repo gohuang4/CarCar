@@ -9,7 +9,6 @@ class AutomobileForm extends React.Component {
       year: "",
       model: "",
       models: [],
-    //   manufacturer: "",
 
     };
 
@@ -18,7 +17,6 @@ class AutomobileForm extends React.Component {
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.handleChangeYear = this.handleChangeYear.bind(this);
     this.handleChangeModel = this.handleChangeModel.bind(this);
-    // this.handleChangeManufacturer = this.handleChangeManufacturer.bind(this);
 
   }
 
@@ -61,7 +59,6 @@ class AutomobileForm extends React.Component {
         color: '',
         year: '',
         model: '',
-        // manufacturer: '',
       });
     }
   }
@@ -82,10 +79,7 @@ class AutomobileForm extends React.Component {
     const value = event.target.value;
     this.setState({ model: value });
   }
-//   handleChangeManufacturer(event) {
-//     const value = event.target.value;
-//     this.setState({ manufacturer: value });
-//   }
+
 
   render() {
     return (
@@ -116,14 +110,6 @@ class AutomobileForm extends React.Component {
                   })}
                 </select>
               </div>
-              {/* <div className="form-floating mb-3">
-                <input onChange={this.handleChangeModel} value={this.state.model} placeholder="Model" required type="text" name="model" id="model" className="form-control" />
-                <label htmlFor="model">Model</label>
-              </div> */}
-              {/* <div className="form-floating mb-3">
-                <input onChange={this.handleChangeManufacturer} value={this.state.manufacturer} placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" />
-                <label htmlFor="manufacturer">Manufacturer</label>
-              </div> */}
               <button className="btn btn-primary">Create</button>
             </form>
           </div>
